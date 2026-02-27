@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os as os
 
 # ==============================
 # PAGE CONFIG
@@ -19,7 +20,9 @@ st.markdown("Dashboard interaktif untuk eksplorasi data penyewaan sepeda.")
 # ==============================
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv")
+    base_path = os.path.dirname(__file__)  # folder dashboard/
+    file_path = os.path.join(base_path, "main_data.csv")
+    df = pd.read_csv(file_path)
     df['dteday'] = pd.to_datetime(df['dteday'])
     return df
 
