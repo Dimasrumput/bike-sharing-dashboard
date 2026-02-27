@@ -77,9 +77,9 @@ st.subheader("📊 Ringkasan Data")
 
 col1, col2, col3 = st.columns(3)
 
-col1.metric("Total Penyewaan", int(filtered_df['cnt'].sum()))
-col2.metric("Rata-rata Harian", round(filtered_df['cnt'].mean(), 2))
-col3.metric("Maksimum Harian", int(filtered_df['cnt'].max()))
+col1.metric("Total Penyewaan", f"{int(filtered_df['cnt'].sum()):,}")
+col2.metric("Rata-rata Harian", f"{round(filtered_df['cnt'].mean(), 2):,}")
+col3.metric("Maksimum Harian", f"{int(filtered_df['cnt'].max()):,}")
 
 # ==============================
 # TREND OVER TIME
